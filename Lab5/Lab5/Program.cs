@@ -1,26 +1,26 @@
 ﻿using System;
 using Methods;
 
-namespace Lab1
+namespace Lab5
 {
     class Program
     {
         static void Main(string[] args)
-        {//x=0..2 y(0)=0
-            RungeKutta RK = new RungeKutta(0.00001, 2, 0, func, funcX);
-            RK.Output();
+        {
+            RungeKuttaODU2 RK_ODU2 = new RungeKuttaODU2(0, 2, 0.2, 0.2 * Math.Pow(Math.E, 4), func, funcX);
+            RK_ODU2.Output();
 
             Console.ReadKey();
         }
 
         private static double func(double x)
         {
-            return x * x + x * x * x * x;
+            return Math.Pow(Math.E, -(x * x)) * (x * x / 2);
         }
 
         private static double funcX(double x, double y)
         {
-            return (2 * x * x * x) + (2 * y / x);
+            return x * Math.Pow(Math.E, -(x * x)) - 2 * x * y;
         }
     }
 }

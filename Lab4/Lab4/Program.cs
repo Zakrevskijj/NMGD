@@ -1,14 +1,14 @@
 ﻿using System;
 using Methods;
 
-namespace Lab1
+namespace Lab4
 {
     class Program
     {
         static void Main(string[] args)
-        {//x=0..2 y(0)=0
-            RungeKutta RK = new RungeKutta(0.00001, 2, 0, func, funcX);
-            RK.Output();
+        {
+            RungeKuttaODU2 rk = new RungeKuttaODU2(0, 2, 0, 0, func, funcX);
+            rk.Output();
 
             Console.ReadKey();
         }
